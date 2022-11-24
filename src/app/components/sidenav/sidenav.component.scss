@@ -1,0 +1,44 @@
+@import "src/app/styles/_vars.scss";
+
+.sidenav {
+  min-height: 100vh;
+  &__container {
+    padding-top: 1rem;
+    width: 250px;
+    overflow-x: hidden;
+
+    ul {
+      font-size: 22px;
+      padding: 0;
+      li {
+        display: block;
+        transition: all 0.1s ease-in-out;
+        :hover {
+          background-color: $color-blue-50;
+          color: $color-white;
+        }
+        a {
+          transition: all 0.1s ease-in-out;
+
+          padding: 0.7rem;
+          text-decoration: none;
+          display: block;
+
+          color: black;
+          :active {
+            color: black !important;
+          }
+        }
+
+        .active {
+          background-color: $color-blue;
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: 1.5rem;
+  }
+}

@@ -1,9 +1,19 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
+<mat-drawer-container class="sidenav" autosize>
+  <mat-drawer #drawer class="sidenav__container" mode="side">
+    <ul>
+      <li *ngFor="let route of routes">
+        <a
+          [routerLink]="route.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ route.title }}</a
+        >
+      </li>
+    </ul>
   </mat-drawer>
 
-  <div class="example-sidenav-content">
+  <div class="sidenav__content">
     <ng-content></ng-content>
   </div>
 </mat-drawer-container>

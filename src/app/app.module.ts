@@ -15,9 +15,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { environment } from '../environments/environment';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { MatListModule } from '@angular/material/list';
+import { PagesModule } from './components/pages/pages.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, SidenavComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidenavComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,6 +42,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
+    MatListModule,
+
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
