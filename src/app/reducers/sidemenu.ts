@@ -8,7 +8,7 @@ import {
 
 import { Key } from '../models/keys';
 
-const toggle = createAction(`[${Key.SIDENAV.toUpperCase()}] toggle`);
+export const toggle = createAction(`[${Key.SIDENAV.toUpperCase()}] toggle`);
 
 export interface ISideMenuState {
   isShow: boolean;
