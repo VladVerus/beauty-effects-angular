@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/pages/home/home.component';
+
+import { ConverterComponent } from './components/pages/converter/converter.component';
+import { NgModule } from '@angular/core';
 import { OverviewComponent } from './components/pages/overview/overview.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, title: 'Home' },
-  { path: 'overview', component: OverviewComponent, title: 'Overview' },
+  { path: '', component: ConverterComponent, title: 'Curency coverter' },
+  { path: 'overview', component: OverviewComponent, title: 'To do list' },
 ];
 
 @NgModule({

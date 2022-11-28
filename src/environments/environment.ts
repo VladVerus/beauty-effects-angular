@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  envVar: {
+    PRIVATE_KEY: 'XAbb6QXORSNG2eicDrITo0oMdTvUyf4E',
+    URL: 'https://api.apilayer.com/exchangerates_data/',
+  },
 };
 
 /*

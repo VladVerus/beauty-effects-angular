@@ -11,13 +11,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { environment } from '../environments/environment';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { PagesModule } from './components/pages/pages.module';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { PagesModule } from './components/pages/pages.module';
     }),
     BrowserAnimationsModule,
 
+    HttpClientModule,
     //? AngularMaterial
     MatToolbarModule,
     MatIconModule,
