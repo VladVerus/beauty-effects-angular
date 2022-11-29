@@ -1,3 +1,4 @@
+import { Path } from './../models/path';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -7,6 +8,7 @@ import {
 import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ResultConvert } from '../models/result';
 
 @Injectable({
   providedIn: 'root',
@@ -17,23 +19,29 @@ export class ConverterService {
 
   private header = new HttpHeaders().set('apikey', this.key);
 
-  convert(from: string, to: string, amount: number): Observable<number> {
+  constructor(private http: HttpClient) {}
+
+  convert(from: string, to: string, amount: number): Observable<ResultConvert> {
     const params = new HttpParams()
       .set('to', to.toString())
       .set('from', from.toString())
       .set('amount', amount.toString());
 
     return this.http
-      .get<number>(this.url + 'convert', {
+      .get<ResultConvert>(this.getUrl('convert'), {
         headers: this.header,
         params,
       })
       .pipe(
-        retry(2),
+        //? retry +1 times (2 in general)
+        retry(1),
         catchError((err) => {
           return throwError(err);
         })
       );
   }
-  constructor(private http: HttpClient) {}
+
+  private getUrl(key: keyof typeof Path): string {
+    return this.url + Path[key];
+  }
 }

@@ -1,3 +1,4 @@
-namespace Path {
-  //export symbols:string = 'symbols';
+export enum Path {
+  symbols = 'symbols',
+  convert = 'convert',
 }

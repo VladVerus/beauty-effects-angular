@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ResultConvert } from 'src/app/models/result';
 import { ConverterService } from 'src/app/services/converter.service';
 
 @Component({
@@ -8,14 +9,21 @@ import { ConverterService } from 'src/app/services/converter.service';
   styleUrls: ['./converter.component.scss'],
 })
 export class ConverterComponent implements OnInit {
-  selected: string = '';
+  selectedFrom: string = '';
+  selectedTo: string = '';
 
-  result: Observable<number> | undefined;
+  result: number = 0;
   constructor(private converterService: ConverterService) {}
   onChange() {
     //this.converterService.log();
   }
-  ngOnInit(): void {
-    //this.converterService.convert('')
+
+  convert() {
+    this.converterService.convert('eur', 'gbp', 50).subscribe(
+      (res) => (this.result = res.result),
+      (err) => console.log(err)
+    );
   }
+
+  ngOnInit(): void {}
 }

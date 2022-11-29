@@ -1,11 +1,20 @@
 <mat-form-field appearance="fill">
   <mat-label>Select an option</mat-label>
-  <mat-select [(value)]="selected" (valueChange)="onChange()">
+  <mat-select [(value)]="selectedFrom" (valueChange)="onChange()">
     <mat-option>None</mat-option>
     <mat-option value="option1">Option 1</mat-option>
     <mat-option value="option2">Option 2</mat-option>
     <mat-option value="option3">Option 3</mat-option>
   </mat-select>
 </mat-form-field>
-
-<p>Result {{ result | async }}</p>
+<mat-form-field appearance="fill">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selectedTo" (valueChange)="onChange()">
+    <mat-option>None</mat-option>
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2">Option 2</mat-option>
+    <mat-option value="option3">Option 3</mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-raised-button>Convert</button>
+<p>Result {{ result }}</p>
