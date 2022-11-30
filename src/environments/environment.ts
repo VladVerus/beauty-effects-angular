@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   envVar: {
     PRIVATE_KEY: 'XAbb6QXORSNG2eicDrITo0oMdTvUyf4E',
-    URL: 'https://api.apilayer.com/exchangerates_data/',
+    HOST_URL: 'https://api.apilayer.com/exchangerates_data/',
   },
 };
 

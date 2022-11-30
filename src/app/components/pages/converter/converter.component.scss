@@ -1,0 +1,19 @@
+.btn {
+  padding: 10px;
+}
+.container {
+  display: flex;
+
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 1.34375em;
+  &__inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.select {
+  padding-bottom: 0 !important;
+}

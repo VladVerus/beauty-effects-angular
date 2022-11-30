@@ -1,6 +1,7 @@
+import { CurrencySymbol } from './../../../models/result';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ResultConvert } from 'src/app/models/result';
+import { FormControl } from '@angular/forms';
+import { from, map, Observable, startWith } from 'rxjs';
 import { ConverterService } from 'src/app/services/converter.service';
 
 @Component({
@@ -9,21 +10,26 @@ import { ConverterService } from 'src/app/services/converter.service';
   styleUrls: ['./converter.component.scss'],
 })
 export class ConverterComponent implements OnInit {
-  selectedFrom: string = '';
-  selectedTo: string = '';
+  fromSelected: string = '';
+  toSelected: string = '';
 
-  result: number = 0;
+  symbols: CurrencySymbol[] = [];
+  value: string = '';
+  result: string = '';
   constructor(private converterService: ConverterService) {}
-  onChange() {
-    //this.converterService.log();
-  }
 
   convert() {
-    this.converterService.convert('eur', 'gbp', 50).subscribe(
-      (res) => (this.result = res.result),
-      (err) => console.log(err)
-    );
+    this.converterService
+      .convert(this.fromSelected, this.toSelected, +this.value)
+      .subscribe(
+        (res) => (this.result = res.result.toString()),
+        (err) => console.log(err)
+      );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.converterService.getSymbols().subscribe((res) => {
+      this.symbols = res;
+    });
+  }
 }

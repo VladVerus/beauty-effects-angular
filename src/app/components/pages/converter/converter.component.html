@@ -1,20 +1,31 @@
-<mat-form-field appearance="fill">
-  <mat-label>Select an option</mat-label>
-  <mat-select [(value)]="selectedFrom" (valueChange)="onChange()">
-    <mat-option>None</mat-option>
-    <mat-option value="option1">Option 1</mat-option>
-    <mat-option value="option2">Option 2</mat-option>
-    <mat-option value="option3">Option 3</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Select an option</mat-label>
-  <mat-select [(value)]="selectedTo" (valueChange)="onChange()">
-    <mat-option>None</mat-option>
-    <mat-option value="option1">Option 1</mat-option>
-    <mat-option value="option2">Option 2</mat-option>
-    <mat-option value="option3">Option 3</mat-option>
-  </mat-select>
-</mat-form-field>
-<button mat-raised-button>Convert</button>
-<p>Result {{ result }}</p>
+<div class="container">
+  <div class="container__inputs">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Value</mat-label>
+      <input matInput type="number" [(ngModel)]="value" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Result</mat-label>
+      <input matInput type="number" [(ngModel)]="result" readonly="true" />
+    </mat-form-field>
+  </div>
+  <div class="container__inputs">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>From</mat-label>
+      <mat-select [(ngModel)]="fromSelected" name="fromSymbols">
+        <mat-option *ngFor="let symbol of symbols" [value]="symbol.key">
+          {{ symbol.text }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>To</mat-label>
+      <mat-select [(ngModel)]="toSelected" name="toSymbols">
+        <mat-option *ngFor="let symbol of symbols" [value]="symbol.key">
+          {{ symbol.text }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button class="btn" (click)="convert()">Convert</button>
+</div>
